@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       name:new FormControl(null,Validators.required),
       zip:new FormControl(null,Validators.required),
       email: new FormControl(null, [Validators.required,Validators.email]),
-      right: new FormControl(Validators.required)
+      right: new FormControl(false, Validators.requiredTrue)
       
     })
   }
