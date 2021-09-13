@@ -1,0 +1,101 @@
+.txt{
+    text-align: center;
+    /* background-color: blueviolet; */
+    text-transform: uppercase;
+}
+  /* Add padding to containers */
+  .container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    /* background-color:aquamarine; */
+    margin: 10px;
+    justify-content: center;
+  }
+  .sc{
+      margin: 10px;
+      padding: 10px;
+      border: 3px solid rgb(22, 20, 21);
+      /* background-color:darkgray; */
+    
+  }
+  
+  /* Full-width input fields */
+  input[type=text],input[type=email],input[type=address],input[type=gender]{
+    width: 95%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=email]:focus,input[type=address]:focus ,input[type=gender]:focus  {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  textarea {
+    width: 95%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  textarea:focus{
+    background-color: #ddd;
+    outline: none;
+  }
+
+
+  /* Overwrite default styles of hr */
+  hr {
+    
+    border: 2px solid #f1f1f1;
+    margin-bottom: 25px;
+    width: auto;
+  }
+  
+ .b{
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+  }
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  .reset {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 30px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    opacity: 0.9;
+  }
+  
+  .reset:hover {
+    opacity: 1;
+  }
