@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 
+export class DatepickerOverviewExample {}
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,7 +11,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  // constructor() { }
+
   public input: any;
   public constructor(){
     // this.input={
@@ -19,14 +21,17 @@ export class RegisterComponent implements OnInit {
     //   "gender":"" 
     // }
   }
+  user  = {};
   myForm !:FormGroup;
 
   ngOnInit(): void {
     this.myForm=new FormGroup({
       name:new FormControl(null,Validators.required),
-      zip:new FormControl(null,Validators.required),
+      zip:new FormControl(null,[Validators.required, Validators.pattern("^[0-9]*$")] ),
       email: new FormControl(null, [Validators.required,Validators.email]),
-      right: new FormControl(false, Validators.requiredTrue)
+      gender: new FormControl(''),
+      address:new FormControl(null, Validators.required),
+      right: new FormControl( '', Validators.requiredTrue)
       
     })
   }
@@ -36,56 +41,39 @@ reset(){
 
 
   onSubmit(){
-    // this._tabledataService.enroll(this.input)
-    // Subscribe(
-    //   data=>console.log('Success')
-    // )
-    // error=>console.error('Error!!',error);
-    //localStorage.setItem("profile",JSON.stringify(this.input));
-    //console.log(this.input);
+  
     console.log(this.myForm.value);
-    // console.log(localStorage.getItem("profile"));
+    localStorage.setItem('form-data', JSON.stringify(this.myForm.value));
 
+
+
+
+
+    // this.user=Object.assign(this.user, this.myForm.value);
+    // localStorage.setItem('User',JSON.stringify(this.user));
+    // this.addUser(this.user);
+    this.myForm.reset('');
+    
   }
+  
+  //  addUser(user:any){
+  //    let users: any[];
+     
+  //    if(localStorage.getItem('User')){
+  //      users = JSON.parse(localStorage.getItem('user') || '[]');
+  //      users =[user,...user];
+  //    }else{
+  //      users = [user]
+  //    }
+  //   localStorage.setItem('User',JSON.stringify(this.user));
+  //   localStorage.getItem('users');
+       
+  //  }
+  
 
 }
 
-// export class AppComponent {
 
-  
-
-//   form = new FormGroup({
-
-//     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-
-//     email: new FormControl('', [Validators.required, Validators.email]),
-
-//     body: new FormControl('', Validators.required)
-
-//   });
-
-  
-
-  // get f(){
-
-  //   return this.form.controls;
-
-  // }
-
-  // onSubmit(){
-  //   // this._tabledataService.enroll(this.input)
-  //   // Subscribe(
-  //   //   data=>console.log('Success')
-  //   // )
-  //   // error=>console.error('Error!!',error);
-  //   //localStorage.setItem("profile",JSON.stringify(this.input));
-  //   //console.log(this.input);
-  //   console.log(this.form.value);
-  //   // console.log(localStorage.getItem("profile"));
-
-  // }
-
- 
   
 
 

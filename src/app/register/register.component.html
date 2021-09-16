@@ -45,46 +45,48 @@
 
       <label for="address"><b>Address</b></label
       ><br />
-      <textarea type="text" cols="80" rows="5" name="address"> </textarea>
+      <textarea type="text" cols="80" rows="5" formControlName="address" name="address"> </textarea>
       <br />
       <label for="zip"> <b>Zip Code: </b> </label>
       <input id="zip" type="text" formControlName="zip" placeholder="Zip" />
+      
       <span
         style="color: red"
         *ngIf="
           myForm.controls.zip.touched &&
-          myForm.controls.zip.hasError('required')
-        "
+          myForm.controls.zip.hasError('required')"
       >
-        Enter Zip <br />
+        Enter only Numbers <br />
       </span>
 
       <label for="Gender"><b>Gender</b></label
       ><br />
-      <input type="radio" name="gender" id="male" />
-      <label for="male">Male</label>
-      <input type="radio" name="gender" id="female" />
-      <label for="female">Female</label>
-
+      <input type="radio" name="gender" value='Male' formControlName="gender" >Male
+      <input type="radio" name='gender' value='Female' formControlName="gender" >Female
+      
+      
       <hr />
+
       <p>
-        By creating an account you agree to our <a href="#">Terms & Privacy</a>.
-      </p>
+        I hereby agree to  <a href="#">Terms & Privacy</a>.
+        </p>
       <input
         type="checkbox"
         formControlName="right"
         id="acceptTerms"
         [ngClass]="{ 'is-invalid': onSubmit && myForm.controls.right.errors }"/>
-      <div>
         <span
           *ngIf="onSubmit && myForm.controls.right.errors"
           class="invalid-feedback"
           >Accept Ts & Cs is required
         </span>
+      <div>
+  
       </div>
+      
 
       <div class="b">
-        <button type="submit" class="registerbtn" [disabled]="myForm.invalid">
+        <button type="submit" class="registerbtn"  [disabled]="myForm.invalid"  >
           Submit
         </button>
         <button type="reset" class="reset" (click)="reset()">Reset</button>
