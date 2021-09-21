@@ -1,0 +1,29 @@
+<div class="">
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-danger">
+        <td>Full Name</td>
+        <td>Email</td>
+        <td>Address</td>
+        <td>Zip Code</td>
+        <td>Gender</td>
+        <td>City</td>
+        <td>Delete</td>
+        <td>Update</td>
+      </tr>
+    </thead>
+    <tbody  *ngFor="let item of itemarray;let in=index" [attr.id]="item.id">
+      <tr>
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.zip}}</td>
+        <td>{{item.gender}}</td>
+        <td>{{item.city}}</td>
+        <td><button type="button" class="btn btn-primary" (click)="deleteRow(in,item.name)" >Delete</button></td>
+        <td><button type="button" class="btn btn-primary" (click)="update(in)">Update</button></td>
+      </tr>
+    </tbody>
+    
+  </table>
+</div>

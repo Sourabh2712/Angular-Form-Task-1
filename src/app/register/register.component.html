@@ -1,9 +1,15 @@
+<div style="justify-content: center;">
+  <h1 style="color: royalblue; text-transform: uppercase; text-align: center;">
+    {{ value }}
+  </h1>
+</div>
+
 <div class="container">
   <form [formGroup]="myForm" class="form" (ngSubmit)="onSubmit()" novalidate>
     <div class="sc">
       <div class="txt">
         <h1>Crud Operation Registration Form</h1>
-        <p>Please fill in the Details.</p>
+        <p>Please fill Details.</p>
       </div>
       <hr />
 
@@ -45,48 +51,71 @@
 
       <label for="address"><b>Address</b></label
       ><br />
-      <textarea type="text" cols="80" rows="5" formControlName="address" name="address"> </textarea>
+      <textarea
+        type="text"
+        cols="80"
+        rows="3"
+        formControlName="address"
+        name="address"
+      >
+      </textarea>
       <br />
       <label for="zip"> <b>Zip Code: </b> </label>
       <input id="zip" type="text" formControlName="zip" placeholder="Zip" />
-      
+
       <span
         style="color: red"
         *ngIf="
           myForm.controls.zip.touched &&
-          myForm.controls.zip.hasError('required')"
+          myForm.controls.zip.hasError('required')
+        "
       >
         Enter only Numbers <br />
       </span>
+      <br>
+      <label for="checkbox">Shows the City</label>
+      <select class="custom-select"  formControlName="city">
+        <option value="" disabled>Choose your city</option>
+        <option *ngFor="let city of City" [value]="city.value">{{city.name}}</option>
+     </select>
+     <br>
 
       <label for="Gender"><b>Gender</b></label
       ><br />
-      <input type="radio" name="gender" value='Male' formControlName="gender" >Male
-      <input type="radio" name='gender' value='Female' formControlName="gender" >Female
+      <input
+        type="radio"
+        name="gender"
+        value="Male"
+        formControlName="gender"
+      />Male
+      <input
+        type="radio"
+        name="gender"
+        value="Female"
+        formControlName="gender"
+      />Female <br>
+      <br>
       
-      
+
+
       <hr />
 
-      <p>
-        I hereby agree to  <a href="#">Terms & Privacy</a>.
-        </p>
+      <p>I hereby agree to <a href="#">Terms & Privacy</a>.</p>
       <input
         type="checkbox"
         formControlName="right"
         id="acceptTerms"
-        [ngClass]="{ 'is-invalid': onSubmit && myForm.controls.right.errors }"/>
-        <span
-          *ngIf="onSubmit && myForm.controls.right.errors"
-          class="invalid-feedback"
-          >Accept Ts & Cs is required
-        </span>
-      <div>
-  
-      </div>
-      
+        [ngClass]="{ 'is-invalid': onSubmit && myForm.controls.right.errors }"
+      />
+      <span
+        *ngIf="onSubmit && myForm.controls.right.errors"
+        class="invalid-feedback"
+        >Accept Ts & Cs is required
+      </span>
+      <div></div>
 
       <div class="b">
-        <button type="submit" class="registerbtn"  [disabled]="myForm.invalid"  >
+        <button type="submit" class="registerbtn" [disabled]="myForm.invalid">
           Submit
         </button>
         <button type="reset" class="reset" (click)="reset()">Reset</button>
